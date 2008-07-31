@@ -1,7 +1,7 @@
 Summary:	Firebug Extension for AJAX Development
 Name:		php-firephp
 Version:	0.1.1
-Release:	0.1
+Release:	0.2
 License:	New BSD License
 Group:		Development/Languages/PHP
 URL:		http://www.firephp.org/
@@ -9,6 +9,7 @@ BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	php-common >= 4:5.0
 Source0:	http://www.firephp.org/DownloadRelease/FirePHPLibrary-FirePHPCore-%{version}
 # Source0-md5:	f11b9e4d9cfbc204699aeeb81547e193
+Patch0:		php-firephp.patch
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -18,6 +19,7 @@ PHP function call.
 
 %prep
 %setup -qc
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
