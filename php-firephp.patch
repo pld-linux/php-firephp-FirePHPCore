@@ -1,0 +1,28 @@
+--- php-firephp-0.1.1/demo/oo.php~	2008-07-14 05:07:08.000000000 +0300
++++ php-firephp-0.1.1/demo/oo.php	2008-07-31 13:07:20.682846194 +0300
+@@ -39,10 +39,8 @@
+ 
+ /* NOTE: You must have the FirePHPCore library in your include path */
+ 
+-set_include_path('./../lib/'.PATH_SEPARATOR.get_include_path());
+- 
+ 
+-require('FirePHPCore/FirePHP.class.php');
++require('/usr/share/php/FirePHP.class.php');
+ 
+ /* NOTE: You must have Output Buffering enabled via
+          ob_start() or output_buffering ini directive. */
+--- php-firephp-0.1.1/demo/procedural.php~	2008-07-14 05:07:16.000000000 +0300
++++ php-firephp-0.1.1/demo/procedural.php	2008-07-31 13:07:12.632815613 +0300
+@@ -39,10 +39,7 @@
+ 
+ /* NOTE: You must have the FirePHPCore library in your include path */
+ 
+-set_include_path('./../lib/'.PATH_SEPARATOR.get_include_path());
+- 
+-
+-require('FirePHPCore/fb.php');
++require('/usr/share/php/fb.php');
+ 
+ /* NOTE: You must have Output Buffering enabled via
+          ob_start() or output_buffering ini directive. */
