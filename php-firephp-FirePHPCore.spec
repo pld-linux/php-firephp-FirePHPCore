@@ -13,7 +13,7 @@ BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	php-common >= 4:%{php_min_version}
-Source0:	http://pear.firephp.org/get/FirePHPCore-%{version}.tgz
+Source0:	http://pear.firephp.org/get/%{_pearname}-%{version}.tgz
 # Source0-md5:	08acc816fc843eea32f825479824662c
 Requires:	php-mbstring
 Requires:	php-pcre
