@@ -4,7 +4,7 @@
 Summary:	Firebug Extension for AJAX Development
 Name:		php-firephp
 Version:	0.3.1
-Release:	1
+Release:	2
 License:	New BSD License
 Group:		Development/Languages/PHP
 URL:		http://www.firephp.org/
@@ -43,5 +43,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %{php_pear_dir}/.registry/.channel.pear.firephp.org/firephpcore.reg
+%dir %{php_pear_dir}/%{_pearname}
 %{php_pear_dir}/%{_pearname}/FirePHP.class.php
 %{php_pear_dir}/%{_pearname}/fb.php
