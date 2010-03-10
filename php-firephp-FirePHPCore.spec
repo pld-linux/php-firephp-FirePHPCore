@@ -1,15 +1,23 @@
+%include	/usr/lib/rpm/macros.php
+%define		_pearname	FirePHPCore
+%define		php_min_version 5.2.0
 Summary:	Firebug Extension for AJAX Development
 Name:		php-firephp
-Version:	0.1.1
-Release:	0.2
+Version:	0.3.1
+Release:	1
 License:	New BSD License
 Group:		Development/Languages/PHP
 URL:		http://www.firephp.org/
-BuildRequires:	rpmbuild(macros) >= 1.268
-Requires:	php-common >= 4:5.0
-Source0:	http://www.firephp.org/DownloadRelease/FirePHPLibrary-FirePHPCore-%{version}
-# Source0-md5:	f11b9e4d9cfbc204699aeeb81547e193
-Patch0:		php-firephp.patch
+BuildRequires:	php-pear-PEAR
+BuildRequires:	rpm-php-pearprov >= 4.4.2-11
+BuildRequires:	rpmbuild(macros) >= 1.300
+Requires:	php-common >= 4:%{php_min_version}
+Source0:	http://pear.firephp.org/get/FirePHPCore-%{version}.tgz
+# Source0-md5:	08acc816fc843eea32f825479824662c
+Requires:	php-mbstring
+Requires:	php-pcre
+Requires:	php-pear >= 4:1.2-2
+Requires:	php-xml
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -18,22 +26,21 @@ FirePHP enables you to print to your Firebug Console using a simple
 PHP function call.
 
 %prep
-%setup -qc
-%patch0 -p1
+%pear_package_setup
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{php_data_dir},%{_examplesdir}/%{name}-%{version}}
-cp -a demo/*.php $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-cp -a lib/FirePHPCore/*.php $RPM_BUILD_ROOT%{php_data_dir}
+install -d $RPM_BUILD_ROOT%{php_pear_dir}
+%pear_package_install
+
+# Good bye php4
+rm -f $RPM_BUILD_ROOT%{php_pear_dir}/%{_pearname}/*.php4
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGELOG README
-%{php_data_dir}/FirePHP.class.php
-%{php_data_dir}/fb.php
-
-%{_examplesdir}/%{name}-%{version}
+%{php_pear_dir}/.registry/.channel.pear.firephp.org/firephpcore.reg
+%{php_pear_dir}/%{_pearname}/FirePHP.class.php
+%{php_pear_dir}/%{_pearname}/fb.php
