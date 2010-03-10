@@ -8,6 +8,7 @@ Release:	1
 License:	New BSD License
 Group:		Development/Languages/PHP
 URL:		http://www.firephp.org/
+BuildRequires:	php-channel(pear.firephp.org)
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
