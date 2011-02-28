@@ -2,9 +2,9 @@
 %define		_pearname	FirePHPCore
 %define		php_min_version 5.2.0
 Summary:	Firebug Extension for AJAX Development
-Name:		php-firephp
-Version:	0.3.1
-Release:	2
+Name:		php-firephp-%{_pearname}
+Version:	0.3.2
+Release:	1
 License:	New BSD License
 Group:		Development/Languages/PHP
 URL:		http://www.firephp.org/
@@ -14,11 +14,13 @@ BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	php-common >= 4:%{php_min_version}
 Source0:	http://pear.firephp.org/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	08acc816fc843eea32f825479824662c
+# Source0-md5:	2850c4a9a976337e14c29c4f4d48b483
+Requires:	php-channel(pear.firephp.org)
 Requires:	php-mbstring
 Requires:	php-pcre
 Requires:	php-pear >= 4:1.2-2
 Requires:	php-xml
+Obsoletes:	php-firephp < 0.3.2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -35,7 +37,7 @@ install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
 
 # Good bye php4
-rm -f $RPM_BUILD_ROOT%{php_pear_dir}/%{_pearname}/*.php4
+%{__rm} $RPM_BUILD_ROOT%{php_pear_dir}/%{_pearname}/*.php4
 
 %clean
 rm -rf $RPM_BUILD_ROOT
