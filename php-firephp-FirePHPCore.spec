@@ -4,7 +4,7 @@
 Summary:	Firebug Extension for AJAX Development
 Name:		php-firephp-%{_pearname}
 Version:	0.3.2
-Release:	2
+Release:	3
 License:	New BSD License
 Group:		Development/Languages/PHP
 URL:		http://www.firephp.org/
@@ -12,7 +12,7 @@ BuildRequires:	php-channel(pear.firephp.org)
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
-Requires:	php-common >= 4:%{php_min_version}
+Requires:	php(core) >= %{php_min_version}
 Source0:	http://pear.firephp.org/get/%{_pearname}-%{version}.tgz
 # Source0-md5:	2850c4a9a976337e14c29c4f4d48b483
 Requires:	php(mbstring)
