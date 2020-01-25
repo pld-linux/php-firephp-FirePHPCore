@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.php
 %define		_pearname	FirePHPCore
 %define		php_min_version 5.2.0
 Summary:	Firebug Extension for AJAX Development
