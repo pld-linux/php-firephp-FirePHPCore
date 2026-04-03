@@ -3,7 +3,7 @@
 Summary:	Firebug Extension for AJAX Development
 Name:		php-firephp-%{_pearname}
 Version:	0.3.2
-Release:	4
+Release:	5
 License:	New BSD License
 Group:		Development/Languages/PHP
 URL:		http://www.firephp.org/
